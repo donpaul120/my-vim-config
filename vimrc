@@ -316,6 +316,7 @@ endfunction
 set statusline+=%{GitStatus()}
 
 "" mappings for vim fugitive
+nmap <leader>ga :Gwrite <CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
 nmap <leader>gf :Gfetch<CR>
