@@ -319,5 +319,6 @@ set statusline+=%{GitStatus()}
 nmap <leader>ga :Gwrite <CR>
 nnoremap <silent> <leader>gb :Gblame<CR>
 nnoremap <leader>gs :Gstatus<CR>
-nmap <leader>gf :Gfetch<CR>
-nmap <leader>gc :Gcommit<CR>
+nnoremap <silent> <leader>gp: Gpush <CR>
+nnoremap <silent> <leader>gf :Gfetch<CR>
+nnoremap <silent> <leader>gc :Gcommit<CR>
