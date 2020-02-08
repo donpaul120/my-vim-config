@@ -306,3 +306,17 @@ endfunction
 " --------------------------
 "nnoremap <silent> <Leader>b :TagbarToggle<CR>
 set tags=./tags;,tags;
+
+
+"" git cutter
+function! GitStatus()
+  let [a,m,r] = GitGutterGetHunkSummary()
+  return printf('+%d ~%d -%d', a, m, r)
+endfunction
+set statusline+=%{GitStatus()}
+
+"" mappings for vim fugitive
+nnoremap <silent> <leader>gb :Gblame<CR>
+nnoremap <leader>gs :Gstatus<CR>
+nmap <leader>gf :Gfetch<CR>
+nmap <leader>gc :Gcommit<CR>
