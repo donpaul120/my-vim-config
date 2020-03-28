@@ -2,12 +2,17 @@ unlet! skip_defaults_vim
 source $VIMRUNTIME/defaults.vim
 " ---- Disable Filetype for Read file settings
 filetype plugin indent on
+set omnifunc=syntaxcomplete#Complete
+
 set mouse=a
 set autowrite
 set number
 set laststatus=2
 set hidden
 set clipboard=unnamedplus
+
+" Set Encoding for devicons
+set encoding=UTF-8
 
 "Ignores
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*/target/* 
@@ -43,7 +48,7 @@ set undodir=/tmp//
 
 let g:webdevicons_enable = 1
 let g:webdevicons_enable_nerdtree = 1
-set guifont=Monaco\ Nerd\ Font\ Complete\ 16
+set guifont=Hack\ Nerd\ Font\ Complete\ 16
 
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -78,7 +83,12 @@ Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'neoclide/coc-tsserver'
 Plug 'neoclide/coc-json'
 Plug 'neoclide/coc-yaml'
+Plug 'neoclide/coc-java'
+
+Plug 'udalov/kotlin-vim'
 call plug#end()
+
+
 " --------------------------------------
 " ---- Plugin Dependencies Settings ----
 " --------------------------------------
@@ -182,6 +192,11 @@ inoremap <silent><expr> <TAB>
       \ <SID>check_back_space() ? "\<TAB>" :
       \ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" Use autocompletion for java
+" autocmd FileType java setlocal omnifunc=javacomplete#Complete
+" autocmd FileType java JCEnable
+
 
 " Used in the tab autocompletion for coc
 function! s:check_back_space() abort
